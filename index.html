@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!--PgP 7/8/2020 updated page. 
+		constants.js file now completed in Formative00
+		constants.js file controls student information for attendance, email feedback and running assignment submission report. 
+		PgP 6/15/2019 update page, added integral check web db submissions, split constants into two files, one for students, one for course -->
+
+    <title>MIS362 Home Page</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap -->
+    <link href="../ReadOnly/bootstrap.css" rel="stylesheet">
+
+    <style type="text/css">
+        .auto-style1 {
+            height: 26px;
+        }
+    </style>
+
+</head>
+
+
+
+<body >
+<div class="container-fluid">
+    <div id="Heading" class=" col-lg-12">    </div>
+        <div class="col-lg-12"><hr /></div>
+
+
+
+    <!-- 
+		PgP 2/28/2020 Add separate form to submit attendance		
+		PgP 3/1/2020 Attendance form and new .asp script work nicely, modified courseconstants.js also
+	-->
+
+    <hr />
+
+
+    <footer>
+        <div id="licenseInfo" class="col-lg-12 text-muted"></div>
+        <div id="footerText" class="col-lg-12 text-muted"></div>
+    </footer>
+
+    <!-- ========== Script Includes (Order is Critical) ========== -->
+    <script src="../ReadOnly/jquery-1.js"></script>
+    <script src="../ReadOnly/bootstrap.js"></script>
+    <script src="studentConstants.js"></script>
+    <script src="../ReadOnly/courseConstants.js"></script>
+    <script src="../ReadOnly/domForms.js"></script>
+
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        var f = document.forms["frmAssignment"];
+        if (f && f.elements["email"]) {
+            console.log("Email field before:", f.elements["email"].value);
+            console.log("studentEmailAddress:", typeof studentEmailAddress, studentEmailAddress);
+            f.elements["email"].value = typeof studentEmailAddress !== "undefined" ? studentEmailAddress : "undefined";
+            console.log("Email field after:", f.elements["email"].value);
+        } else {
+            console.log("frmAssignment or email field not found");
+        }
+    });
+</script>
+</div>
+</body>
+
+</html>
