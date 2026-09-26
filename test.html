@@ -4,6 +4,10 @@
 <head>
     <meta charset="utf-8">
     <title>SWA Test</title>
+
+    <!-- Shared Bootstrap CSS -->
+    <link href="../fall2026/mis362/bootstrap.css" rel="stylesheet">
+
 </head>
 
 <body>
@@ -13,6 +17,71 @@
     <p>If you can see this page, the Static Web App is working.</p>
 
     <p>Test date: September 26, 2026</p>
+
+    <!--
+        PgP 9/26/2026 testing new course-assets setup
+    -->
+
+
+
+
+        <footer>
+            <div id="licenseInfo" class="col-lg-12 text-muted"></div>
+            <div id="footerText" class="col-lg-12 text-muted"></div>
+        </footer>
+
+
+    <!-- ========== Script Includes (Order is Critical) ========== -->
+
+    <script src="../fall2026/mis362/jquery-1.js"></script>
+
+    <script src="../fall2026/mis362/bootstrap.js"></script>
+
+    <script src="../fall2026/mis362/courseConstants.js"></script>
+
+    <!-- Student-specific file remains local -->
+    <script src="studentConstants.js"></script>
+
+    <script src="../fall2026/mis362/domForms.js"></script>
+
+    <!-- Test -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+
+            var form = document.forms["frmAssignment"];
+
+            if (!form) {
+                console.log("frmAssignment not found");
+                return;
+            }
+
+            var emailField = form.elements["email"];
+
+            if (!emailField) {
+                console.log("email field not found");
+                return;
+            }
+
+            console.log("Email field before:", emailField.value);
+
+            console.log(
+                "studentEmailAddress:",
+                typeof studentEmailAddress,
+                typeof studentEmailAddress !== "undefined"
+                    ? studentEmailAddress
+                    : "undefined"
+            );
+
+            if (typeof studentEmailAddress !== "undefined") {
+                emailField.value = studentEmailAddress;
+            }
+
+            console.log("Email field after:", emailField.value);
+        });
+    </script>
+
+
+
 
 </body>
 
